@@ -404,15 +404,17 @@ animations = [{
 size = Vector2(12, 43)
 
 [node name="Player" type="CharacterBody2D"]
+texture_filter = 1
 collision_layer = 0
 script = ExtResource("1_23j4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -34)
 sprite_frames = SubResource("SpriteFrames_si5oi")
-animation = &"back-jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -21.5)
+position = Vector2(2, -22)
 shape = SubResource("RectangleShape2D_j0x4a")

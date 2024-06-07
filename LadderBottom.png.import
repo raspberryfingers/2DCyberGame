@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wneyumpv2sf2"
-path="res://.godot/imported/climb.png-cd05c7404055c0fd8c72141288664616.ctex"
+uid="uid://d23ae58rm4su7"
+path="res://.godot/imported/LadderBottom.png-e1457826ed8db2bab0bf10f8c79d59ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Assets/climb.png"
-dest_files=["res://.godot/imported/climb.png-cd05c7404055c0fd8c72141288664616.ctex"]
+source_file="res://LadderBottom.png"
+dest_files=["res://.godot/imported/LadderBottom.png-e1457826ed8db2bab0bf10f8c79d59ef.ctex"]
 
 [params]
 
