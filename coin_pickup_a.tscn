@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://jcmlowg0shbt"]
+
+[ext_resource type="Script" path="res://CoinPickup_A.gd" id="1_k4jrq"]
+[ext_resource type="Texture2D" uid="uid://doajw3w813fwl" path="res://World/Pickups/CoinPickup/Coin_.png" id="2_ko4j7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16nnr"]
+atlas = ExtResource("2_ko4j7")
+region = Rect2(0, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80dju"]
+atlas = ExtResource("2_ko4j7")
+region = Rect2(13, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfvov"]
+atlas = ExtResource("2_ko4j7")
+region = Rect2(26, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r111o"]
+atlas = ExtResource("2_ko4j7")
+region = Rect2(39, 0, 13, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxiby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16nnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80dju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfvov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r111o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lumrd"]
+radius = 7.0
+
+[node name="CoinPickup_A" type="Node2D"]
+script = ExtResource("1_k4jrq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qxiby")
+autoplay = "default"
+frame_progress = 0.39165
+
+[node name="CoinPickupArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinPickupArea2D"]
+shape = SubResource("CircleShape2D_lumrd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 14.0
+text = "1"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="CoinPickupArea2D" to="." method="_on_coin_pickup_area_2d_body_entered"]

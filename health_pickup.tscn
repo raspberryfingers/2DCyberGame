@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpfr8gdp37k"]
+
+[ext_resource type="Script" path="res://World/Pickups/HealthPickup/health_pickup.gd" id="1_x2a5p"]
+[ext_resource type="Texture2D" uid="uid://bi0ir53briidp" path="res://World/Pickups/HealthPickup/HeartPickuo.png" id="2_dpoey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c5nj"]
+atlas = ExtResource("2_dpoey")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1krn"]
+atlas = ExtResource("2_dpoey")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b36id"]
+atlas = ExtResource("2_dpoey")
+region = Rect2(0, 64, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daq85"]
+atlas = ExtResource("2_dpoey")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3u67"]
+atlas = ExtResource("2_dpoey")
+region = Rect2(0, 128, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lwe1"]
+atlas = ExtResource("2_dpoey")
+region = Rect2(0, 160, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1svqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c5nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1krn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b36id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daq85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3u67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lwe1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ioit1"]
+radius = 6.0
+
+[node name="HealthPickup" type="Node2D"]
+position = Vector2(6, -5)
+script = ExtResource("1_x2a5p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1svqq")
+autoplay = "default"
+frame_progress = 0.375892
+
+[node name="HealthPickupBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPickupBox"]
+shape = SubResource("CircleShape2D_ioit1")
+
+[connection signal="body_entered" from="HealthPickupBox" to="." method="_on_health_pickup_box_body_entered"]

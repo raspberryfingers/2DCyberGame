@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt84qog1fcht7"]
+
+[ext_resource type="Script" path="res://UI/start_menu_screen.gd" id="1_ybrh1"]
+[ext_resource type="Texture2D" uid="uid://c2tfjfvi7diir" path="res://World/background/skyline-b.png" id="2_vausc"]
+[ext_resource type="Texture2D" uid="uid://c5f88g7m0pnmt" path="res://World/background/skyline-a.png" id="3_h6te2"]
+[ext_resource type="Texture2D" uid="uid://cqr4sy4objkfh" path="res://New Project.png" id="4_wj34b"]
+[ext_resource type="FontFile" uid="uid://b10uvsj1044em" path="res://Fonts/PixelEmulator-xq08.ttf" id="5_706th"]
+[ext_resource type="FontFile" uid="uid://cnqgqyunqiim5" path="res://Fonts/GlitchGoblin-2O87v.ttf" id="6_nw2t4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgfg0"]
+font = ExtResource("6_nw2t4")
+font_size = 100
+
+[node name="StartMenuScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ybrh1")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="MenuBackground2" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vausc")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MenuBackground5" type="TextureRect" parent="Background/MenuBackground2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1093.0
+offset_top = 1.0
+offset_right = 1093.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6te2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MenuBackground4" type="TextureRect" parent="Background/MenuBackground2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 748.0
+offset_right = 748.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6te2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MenuBackground3" type="TextureRect" parent="Background/MenuBackground2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_top = 1.0
+offset_right = 59.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6te2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MenuBackground6" type="TextureRect" parent="Background/MenuBackground2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -286.0
+offset_right = -286.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_h6te2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MenuBackground" type="TextureRect" parent="Background/MenuBackground2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wj34b")
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = 228.0
+offset_right = 137.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueGame" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_706th")
+text = "  Continue Game  "
+
+[node name="NewGame" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_706th")
+text = "  New Game  "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = 18.0
+offset_top = 593.0
+offset_right = 76.0
+offset_bottom = 633.0
+
+[node name="Back" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_706th")
+text = "Back 
+"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -453.0
+offset_top = 239.0
+offset_right = 454.0
+offset_bottom = 354.0
+grow_horizontal = 2
+text = "Escape Protocol"
+label_settings = SubResource("LabelSettings_qgfg0")
+
+[connection signal="pressed" from="HBoxContainer/ContinueGame" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="HBoxContainer2/Back" to="." method="_on_back_pressed"]
